@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+$primaryColor : #2b2b2b;
+$secondaryColor: #DEDEDE;
+$accentColor: black;
+*, *::after, *::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+header{
+    background-color: #2b2b2b;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: $secondaryColor;
+    box-shadow: 0 0 5px 2px rgb(22, 22, 22);
+}
+main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        margin: 2em 0;
+        .btns{
+            cursor: pointer;
+            padding: 0.5em 1em;
+            width: 180px;
+            height: 50px;
+            background-color: #DEDEDE;
+            outline: none;
+            border: none;
+            font-size: 1.09rem;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 5px 4px 1px rgb(22, 22, 22);
+            transition: 300ms ease-in-out;
+            &:hover{
+                transform: translateY(-5px);
+                background-color: $accentColor;
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 500px;
+        height: 500px;
+        margin: 2em 0;
+        .box{
+            position: relative;
+            cursor: pointer;
+            outline: 3px solid $accentColor;
+            outline-offset: -1px;
+            transition: 200ms ease-in;
+            &:hover{
+                background-color: rgb(59, 59, 59);
+            }
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 5rem;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                color: $secondaryColor;
+            }
+        }
+    }
+
+    .turns{
+        margin: 2em 0;
+        color: $secondaryColor;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primaryColor;
+    height: 50px;
+
+    a {
+        align-self: center;
+        text-decoration: none;
+        color: $secondaryColor;
+        width: fit-content;
+
+        &:hover {
+            .github-logo {
+                transform: rotate(360deg);
+            }
+
+            .name {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .credit {
+        font-size: 1.2rem;
+        width: auto;
+        display: flex;
+        gap: 0.2em;
+
+        .github-logo {
+            transition: 250ms ease-in-out;
+        }
+    }
+}
