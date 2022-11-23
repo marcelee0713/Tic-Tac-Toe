@@ -84,7 +84,7 @@ main{
         }
     }
 
-    .turns{
+    #turns{
         margin: 2em 0;
         color: $secondaryColor;
         font-size: 1.2rem;
@@ -119,6 +119,8 @@ footer{
         font-size: 1.2rem;
         width: auto;
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 0.2em;
 
         .github-logo {

@@ -83,7 +83,7 @@ main .container .box span {
   position: absolute;
   color: #DEDEDE;
 }
-main .turns {
+main #turns {
   margin: 2em 0;
   color: #DEDEDE;
   font-size: 1.2rem;
@@ -115,6 +115,8 @@ footer .credit {
   font-size: 1.2rem;
   width: auto;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.2em;
 }
 footer .credit .github-logo {
