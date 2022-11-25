@@ -21,6 +21,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1.2em;
     font-size: 1.2rem;
     color: $secondaryColor;
     box-shadow: 0 0 5px 2px rgb(22, 22, 22);
@@ -97,7 +98,7 @@ footer{
     align-items: center;
     background-color: $primaryColor;
     height: 50px;
-
+    padding: 0.5em;
     a {
         align-self: center;
         text-decoration: none;
