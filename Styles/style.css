@@ -188,4 +188,38 @@ footer .credit .github-logo {
   transform: translateY(-5px);
   background-color: black;
   color: #DEDEDE;
+}
+
+@media only screen and (max-width: 40.625em) {
+  header {
+    padding: 0.6em;
+    font-size: 1rem;
+    height: 75px;
+  }
+  main .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 0.9em 0;
+  }
+  main .btn-container .btns {
+    padding: 0.5em 1em;
+    width: 80px;
+    height: 30px;
+    font-size: 0.7rem;
+  }
+  main .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    margin: 0.9em 0;
+  }
+  main #turns {
+    margin: 0.9em 0;
+    color: #DEDEDE;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -115,6 +115,8 @@ const gameBoard = (() => {
         game.reset();
         modal.style.display = "none";
         modalHeader.textContent = ""
+        // It'll will go to div "box/squares" first and loop through everything. 
+        // Then delete any existing nodes/children
         game.gameboard.forEach(squares => {
             let parentBox = squares.children; 
             for(let i = 0; i < squares.children.length; i++){
