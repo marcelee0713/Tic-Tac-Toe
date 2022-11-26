@@ -37,7 +37,7 @@ const game = (() => {
                 let pick = parseInt(e.target.getAttribute("value"));
                 player1Numbers.push(pick);
                 gameBoard.compareNumbers(player1Numbers, player1.name);
-                gameBoard.reduceTurnCounts(turnCounts--);
+                gameBoard.reduceTurnCounts(turnCounts--, player1Numbers, player1.name);
             }
             else {
                 let createMarker = document.createElement("span");
@@ -48,7 +48,7 @@ const game = (() => {
                 let pick = parseInt(e.target.getAttribute("value"));
                 player2Numbers.push(pick);
                 gameBoard.compareNumbers(player2Numbers, player2.name);
-                gameBoard.reduceTurnCounts(turnCounts--);
+                gameBoard.reduceTurnCounts(turnCounts--, player2Numbers, player2.name);
             }
         }
     }));
@@ -62,7 +62,7 @@ const game = (() => {
     return {
         player1, player1Numbers,
         player2, player2Numbers,
-        turnCounts, player1Turn, 
+        turnCounts, player1Turn,
         restart, gameboard,
         reset
     }
@@ -85,7 +85,6 @@ const gameBoard = (() => {
     const modalHeader = document.getElementById("header");
     const tryAgainBtn = document.getElementById("try-again-btn");
 
-
     //will check if either the players contain each array of the winning conditions
     const compareNumbers = (pNumbers, pName) => {
         for (let i = 0; i < winningConditions.length; i++) {
@@ -98,14 +97,30 @@ const gameBoard = (() => {
                 modalHeader.textContent = `${pName} WINS!`;
             }
         }
-
     }
 
-    const reduceTurnCounts = count => {
+    const reduceTurnCounts = (count, pNumbers, pName) => {
         game.turnCounts = count;
-        if(count === 0){
-            modal.style.display = "flex";
-            modalHeader.textContent = "TIE!"
+        //Bug fix where only one box left and when either the player wins it receives a tie instead.
+        for (let i = 0; i < winningConditions.length; i++) {
+            let currentWinConArray = winningConditions[i];
+            let playerCurrentArray = pNumbers;
+
+            //if the player's array matches any of the winning conditions. player wins
+            if (currentWinConArray.every(ai => playerCurrentArray.includes(ai))) {
+                modal.style.display = "flex";
+                modalHeader.textContent = `${pName} WINS!`;
+                break;
+            }
+            if ((count === 0) && (currentWinConArray.every(ai => playerCurrentArray.includes(ai)))) {
+                modal.style.display = "flex";
+                modalHeader.textContent = `${pName} WINS!`;
+                break;
+            }
+            else if (count === 0) {
+                modal.style.display = "flex";
+                modalHeader.textContent = "TIE!"
+            }
         }
     }
 
@@ -118,10 +133,10 @@ const gameBoard = (() => {
         // It'll will go to div "box/squares" first and loop through everything. 
         // Then delete any existing nodes/children
         game.gameboard.forEach(squares => {
-            let parentBox = squares.children; 
-            for(let i = 0; i < squares.children.length; i++){
-                if(parentBox[i].hasChildNodes()){
-                    while(parentBox[i].firstChild){
+            let parentBox = squares.children;
+            for (let i = 0; i < squares.children.length; i++) {
+                if (parentBox[i].hasChildNodes()) {
+                    while (parentBox[i].firstChild) {
                         parentBox[i].removeChild(parentBox[i].firstChild);
                     }
                 }
