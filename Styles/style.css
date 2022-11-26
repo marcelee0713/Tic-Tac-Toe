@@ -123,4 +123,69 @@ footer .credit {
 }
 footer .credit .github-logo {
   transition: 250ms ease-in-out;
+}
+
+.style-modal {
+  background-color: rgba(17, 17, 17, 0.6);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  overflow: auto;
+  display: none;
+  -webkit-animation-name: openmodal;
+          animation-name: openmodal;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+@-webkit-keyframes openmodal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes openmodal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.style-modal .winner-container {
+  background-color: #DEDEDE;
+  width: 300px;
+  height: auto;
+  border: 1px solid #2b2b2b;
+  transition: 250ms ease-in-out;
+  padding: 1em 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.style-modal .winner-container .modal-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.style-modal .winner-container .modal-button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  background-color: #DEDEDE;
+  outline: none;
+  border: none;
+  font-size: 1.09rem;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0 5px 4px 1px rgb(22, 22, 22);
+  transition: 300ms ease-in-out;
+}
+.style-modal .winner-container .modal-button:hover {
+  transform: translateY(-5px);
+  background-color: black;
+  color: #DEDEDE;
 }/*# sourceMappingURL=style.css.map */
